@@ -54,15 +54,15 @@ function generateResult(arr) {
       dataItem = {
         type: 'gif',
         id: index.toString(),
-        imageUrl: item.imageUrl,
-        thumb_url: item.imageUrl
+        imageUrl: 'https://' + item.imageUrl,
+        thumb_url: 'https://' + item.imageUrl
       }
     } else {
       dataItem = {
         type: 'photo',
         id: index.toString(),
-        photo_url: item.imageUrl,
-        thumb_url: item.imageUrl
+        photo_url: 'https://' + item.imageUrl,
+        thumb_url: 'https://' + item.imageUrl
       }
     }
     result.push(dataItem)
