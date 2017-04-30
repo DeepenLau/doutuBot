@@ -51,21 +51,21 @@ function generateResult(arr) {
   arr.forEach((item, index) => {
     let dataItem = {}
     if (item.imageUrl.endsWith('.gif')) {
-      dataItem = {
-        type: 'gif',
-        id: index.toString(),
-        imageUrl: 'https://' + item.imageUrl,
-        thumb_url: 'https://' + item.imageUrl
-      }
+      // dataItem = {
+      //   type: 'gif',
+      //   id: index.toString(),
+      //   imageUrl: 'https:' + item.imageUrl,
+      //   thumb_url: 'https:' + item.imageUrl
+      // }
     } else {
       dataItem = {
         type: 'photo',
         id: index.toString(),
-        photo_url: 'https://' + item.imageUrl,
-        thumb_url: 'https://' + item.imageUrl
-      }
+        photo_url: 'https:' + item.imageUrl,
+        thumb_url: 'https:' + item.imageUrl
+      },
+      result.push(dataItem)
     }
-    result.push(dataItem)
   })
   return result
 }
