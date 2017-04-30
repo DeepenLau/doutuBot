@@ -8,24 +8,37 @@ const bot = new TelegramBot(token, { polling: true })
 
 const api = require('./api')
 
-bot.on('inline_query', async (inline) => {
-  if (!inline.query || !inline.query.trim()) {
-    return
-  }
-  const list = await api.getImageList(inline.query.trim())
+// bot.on('inline_query', async (inline) => {
+//   if (!inline.query || !inline.query.trim()) {
+//     return
+//   }
+//   const list = await api.getImageList(inline.query.trim())
 
-  const resultArr = generateResult(list)
+//   const resultArr = generateResult(list)
 
-  bot.answerInlineQuery(inline.id, resultArr)
-    .then(res => {
-      console.log(res)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+//   bot.answerInlineQuery(inline.id, resultArr)
+//     .then(res => {
+//       console.log(res)
+//     })
+//     .catch(err => {
+//       console.log(err)
+//     })
 
-  // bot.sendMessage(inline.from.id, 'something wrong, try again.')
-})
+//   // bot.sendMessage(inline.from.id, 'something wrong, try again.')
+// })
+
+// Matches "/echo [whatever]"
+bot.onText(/\/echo (.+)/, (msg, match) => {
+  // 'msg' is the received Message from Telegram
+  // 'match' is the result of executing the regexp above on the text content
+  // of the message
+
+  const chatId = msg.chat.id
+  const resp = match[1] // the captured "whatever"
+
+  // send back the matched "whatever" to the chat
+  bot.sendMessage(chatId, resp)
+});
 
 bot.on('message', (msg) => {
   const chatId = msg.chat.id
