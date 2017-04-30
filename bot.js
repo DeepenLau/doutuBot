@@ -48,7 +48,7 @@ bot.on('message', (msg) => {
 function generateResult(arr) {
   let result = []
   arr = arr.splice(0, 50)
-  result.forEach((item, index) => {
+  arr.forEach((item, index) => {
     let dataItem = {}
     if (item.imageUrl.endsWith('.gif')) {
       dataItem = {
