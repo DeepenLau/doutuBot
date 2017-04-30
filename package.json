@@ -1,0 +1,25 @@
+{
+  "name": "node-spiders",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "bot": "nodemon bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.3.0",
+    "axios": "^0.16.1",
+    "cheerio": "^0.22.0",
+    "koa": "^2.2.0",
+    "koa-router": "^7.1.1",
+    "node-telegram-bot-api": "^0.27.1",
+    "superagent": "^3.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
