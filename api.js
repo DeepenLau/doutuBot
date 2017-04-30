@@ -12,27 +12,15 @@ async function getImageList(keyword) {
       const isGifIcon = $(item).hasClass('gif')
       if (!isGifIcon) {
         const imageUrl = $(item).data('original')
-        let dataItem = {}
-        if (imageUrl.endsWith('.gif')) {
-          dataItem = {
-            type: 'gif',
-            id: i.toString(),
-            gif_url: imageUrl,
-            thumb_url: imageUrl
-          }
-        } else {
-          dataItem = {
-            type: 'photo',
-            id: i.toString(),
-            photo_url: imageUrl,
-            thumb_url: imageUrl
-          }
+        let dataItem = {
+          id: i.toString(),
+          imageUrl: imageUrl
         }
         list.push(dataItem)
       }
     })
   })
-  return list = list.splice(0, 50)
+  return list
 }
 
 module.exports = { getImageList }
