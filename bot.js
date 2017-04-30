@@ -15,9 +15,7 @@ bot.on('inline_query', async (inline) => {
   try {
     const list = await api.getImageList(inline.query.trim())
 
-    const result = initInlineQuery(list)
-
-    bot.answerInlineQuery(inline.id, result)
+    bot.answerInlineQuery(inline.id, list)
   } catch (e) {
     bot.sendMessage(inline.from.id, 'something wrong, try again.')
   }
