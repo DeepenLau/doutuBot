@@ -4,13 +4,19 @@ const Router = require('koa-router')
 const app = new Koa()
 const router = new Router()
 
-const getImageList = require('./getImage')
-const bot = require('./bot')
+const api = require('./api')
+// const bot = require('./bot')
 
 router
   .get('/:keyword', async (ctx, next) => {
     const keyword = ctx.params.keyword
-    // let list = await getImageList(keyword)
+    if (!keyword) {
+      ctx.body = '你没有输入参数'
+      next()
+      return
+    }
+    let list = await api.getImageList(keyword)
+    ctx.body = list
   })
 
 app
@@ -18,8 +24,3 @@ app
   .use(router.allowedMethods())
 
 app.listen(3000)
-
-bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
-  bot.sendMessage(chatId, 'Received your message');
-})
