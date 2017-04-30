@@ -15,10 +15,10 @@ bot.on('inline_query', async (inline) => {
   const list = await api.getImageList(inline.query.trim())
 
   const resultArr = generateResult(list)
-  console.log(resultArr)
+  // console.log(resultArr)
   bot.answerInlineQuery(inline.id, resultArr)
     .then(res => {
-      console.log(res)
+      // console.log(res)
     })
     .catch(err => {
       console.log(err)
@@ -51,6 +51,7 @@ function generateResult(arr) {
   arr.forEach((item, index) => {
     let dataItem = {}
     if (item.imageUrl.endsWith('.gif')) {
+      // 先不搞 gif 了
       // dataItem = {
       //   type: 'gif',
       //   id: index.toString(),
