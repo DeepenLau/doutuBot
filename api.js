@@ -32,7 +32,7 @@ async function getImageList(keyword) {
       }
     })
   })
-  return list
+  return list = list.splice(0, 50)
 }
 
 module.exports = { getImageList }
