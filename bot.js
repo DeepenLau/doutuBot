@@ -63,7 +63,9 @@ function generateResult(arr) {
         type: 'photo',
         id: index.toString(),
         photo_url: 'https:' + item.imageUrl,
-        thumb_url: 'https:' + item.imageUrl
+        thumb_url: 'https:' + item.imageUrl,
+        photo_width: 200,
+        photo_height: 200
       },
       result.push(dataItem)
     }
