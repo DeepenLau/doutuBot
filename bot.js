@@ -66,7 +66,7 @@ function generateResult(arr) {
         thumb_url: 'https:' + item.imageUrl,
         photo_width: 200,
         photo_height: 200
-      },
+      }
       result.push(dataItem)
     }
   })
